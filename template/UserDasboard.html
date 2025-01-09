@@ -1,0 +1,165 @@
+
+{%load static %}
+<!DOCTYPE>
+<html>
+  <head>
+   
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+
+<!--main.js for js folder
+<script type="text/javascript" src="{% static 'js/main.js' %}"></script>-->
+
+<!-- Fontawesome Links icon -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+    
+<!--Fontawesome link for text-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@500&display=swap" rel="stylesheet">
+
+<!--Autocomplete link-->
+<link rel="stylesheet" href="https://unpkg.com/@trevoreyre/autocomplete-js/dist/style.css"/>
+
+
+<!-- jQuery for auto search last -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+<!-- jQuery UI for auto search last-->
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+<!-- static nebar link-->
+{%load static %}
+<link rel="stylesheet" href="{% static 'style.css'%}">
+
+
+
+ <title>House </title>
+ 
+
+</head>
+<body>     
+  
+<!--heading-->
+<div class="container-fluid py-2 px-2 rounded shadow rounded rounded-pill" style="color:#000000; background-color:#72A0C1;">
+  <header class="text-center">
+      <h2 style="color: #060530	;"><b>Dashbord Details</b></h4>
+      <h5>Today: <strong style="color:#000000;">{% now 'D, jS F Y' %}</strong></h5>
+  </header>
+</div> <br>
+<button type="submit" class="btn btn-outline-info ml-5 mt-2 my-2 my-sm-0"> <a href="/home/" style="color: #220d9c;">Back to Previous Page</a></button>
+<button class="btn btn-outline-dark mt-2 my-2 my-sm-0" type="submit"><a href="/stuff_logout/">Log Out</a></button> 
+<button class="btn btn-outline-dark mt-2 my-2 my-sm-0" type="submit"><a href="/sale_add/">Sale Add Page</a></button> 
+<button class="btn btn-outline-dark mt-2 my-2 my-sm-0" type="submit"><a href="/search/">Search Page</a></button> 
+   
+<br>
+<!--end heading-->  
+    
+<!--start admin dashboard-->
+<section>
+  <h2 style="text-align: center;"><b>Dashbord From The Json Data</b></h4>
+ <div class="content">
+    {% if formvar %}
+    
+    <table class="table table-bordered table-striped ">
+        <thead class="thead-dark">
+          <tr>
+          
+            <th scope="col">brand</th>
+           <th scope="col">modelname</th>
+            <th scope="col">device series</th>
+            <th scope="col">device_number</th>
+            <th scope="col">processor_brand</th>
+            <th scope="col">generation</th>
+            <th scope="col">processor_model</th>
+            <th scope="col">cpu_cache</th>
+            <th scope="col">display_size</th>
+            <th scope="col">display_type</th>
+            <th scope="col">display_resolution</th>
+            <th scope="col">touch_screen</th>
+            <th scope="col">ram</th>
+            <th scope="col">ram_type</th>
+            <th scope="col">hdd</th>
+            <th scope="col">ssd</th>
+            <th scope="col">optical_drive</th>
+            <th scope="col">keyboard_back_lit</th>
+            <th scope="col">finger_print_sensor</th>
+            <th scope="col">wifi</th>
+            <th scope="col">operating_system</th>
+            <th scope="col">weight</th>
+            <th scope="col">warranty</th>
+            <th scope="col">Delete</th>
+            <th scope="col">Edit</th>
+            
+          </tr>
+        </thead>
+        <tbody>
+    
+            {% for f in formvar%}
+    
+          <tr>
+            
+            <th scope="row">{{f.brand}}</th>
+           <th scope="row">{{f.modelname}}</th>
+            <td>{{f.device_series}}</td>
+            <td>{{f.device_number}}</td>
+            <td>{{f.processor_brand}}</td>
+            <td>{{f.generation}}</td>
+            <td>{{f.processor_model}}</td>
+            <td>{{f.cpu_cache}}</td>
+            <td>{{f.display_size}}</td>
+            <td>{{f.display_type}}</td>
+            <td>{{f.display_resolution}}</td>
+            <td>{{f.touch_screen}}</td>
+            <td>{{f.ram}}</td>
+            <td>{{f.ram_type}}</td>
+            <td>{{f.hdd}}</td>
+            <td>{{f.ssd}}</td>
+            <td>{{f.optical_drive}}</td>
+            <td>{{f.keyboard_back_lit}}</td>
+            <td>{{f.finger_print_sensor}}</td>
+            <td>{{f.wifi}}</td>
+            <td>{{f.operating_system}}</td>
+            <td>{{f.weight}}</td>
+            <td>{{f.warranty}}</td>
+           
+           
+
+            <td>
+              <form action="{% url 'dashboard_delete' f.id %}" method="post">
+                {% csrf_token %}
+                <input type="submit" value="Delete">
+              </form>
+            </td>
+            
+              <td>
+               <a href="{% url 'dashboard_edit' f.id %}">Edit</a>    <!--edit ar jonno--> 
+              </td>
+        
+    
+           </tr>
+         
+    {%endfor%}
+    
+    </tbody>
+    </table>
+    
+    {%endif%}
+    
+    </div>
+    
+ 
+    
+    </section>
+    
+
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+     <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    
+    <!--Autocomplete javascript Link-->
+    <script src="https://unpkg.com/@trevoreyre/autocomplete-js"></script>
+  </body>
+</html>        

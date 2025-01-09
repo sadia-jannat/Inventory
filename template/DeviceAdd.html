@@ -1,0 +1,236 @@
+
+{%load static %}
+
+<html>
+  <head>
+   
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+
+<!-- Fontawesome Links icon -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+    
+<!--Fontawesome link for text-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@500&display=swap" rel="stylesheet">
+
+<!-- Fontawesome Links icon -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+    
+<!--Autocomplete link-->
+<link rel="stylesheet" href="https://unpkg.com/@trevoreyre/autocomplete-js/dist/style.css"/>
+
+
+<!-- jQuery for auto search last -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+<!-- jQuery UI for auto search last-->
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+<!-- static nebar link-->
+{%load static %}
+<link rel="stylesheet" href="{% static 'style.css'%}">
+
+ <title>House </title>
+
+<!--latest--> 
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">        
+ <!--end-->
+
+
+</head>
+<body >
+<!--start form-->
+<div class="container-fluid text-light py-4 rounded shadow rounded rounded-pill" style="background-color: #72A0C1;">
+    <header class="text-center">
+        <h4 class="display-6">Company's Employee Form Fillup</h4>
+    </header>
+    
+</div>
+<div class="container">  
+  <div class="row mb-5">
+<button class="btn btn-outline-dark mt-2 my-2 my-sm-0" type="submit"><a href="/stuff_logout/">Log Out</a></button> 
+<button class="btn btn-outline-dark mt-2 my-2 my-sm-0" type="submit"><a href="{% url 'Dashboard' %}">Dashboard page</a></button> 
+<button class="btn btn-outline-dark mt-2 my-2 my-sm-0" type="submit"><a href="/search/">Search Page</a></button> 
+<button class="btn btn-outline-dark mt-2 my-2 my-sm-0" type="submit"><a href="/sale_add/">Sale Add Page</a></button> 
+<button class="btn btn-outline-dark mt-2 my-2 my-sm-0" type="submit"><a href="/home/">Back to Previous Page</a></button> 
+
+<!--as like href direct url use kore or %url a name use kore%-->
+</div>
+</div>     
+
+<section>
+  <div class="d-flex justify-content-center">  <!--center form-->
+
+<div class="container mx-4 my-4 w-50 text-light p-2 rounded shadow " style="background-color: #72A0C1;">
+  
+    <form action="" method="POST" enctype="multipart/form-data" class="row g-3">
+
+            {% csrf_token %} 
+      
+        <div class="col-12">
+            <label for="inputBrand" class="form-label">Brand Name</label>
+            <input Required name="brand" type="text" class="form-control" id="inputBrand" placeholder="Brand name...">
+          </div> 
+
+        <div class="col-md-6">
+            <label for="inputModel" class="form-label">Model Name</label>
+            <input type="text" Required name="modelname" class="form-control" id="inputModel" placeholder="Model name...">
+        </div>  
+        <div class="col-md-6">
+            <label for="inputdevseries" class="form-label">Device Series</label>
+            <input type="text" Required name="device_series" class="form-control" id="inputdevseries" placeholder="Device series...">
+          </div>  
+        
+        
+        <div class="col-12">
+          <label for="inputdevnum" class="form-label">Device Number</label>
+          <input type="number" Required name="device_number" class="form-control" id="inputdevnum" placeholder="Total Device">
+        </div>
+
+        <div class="col-12">
+            <label for="inputprobra" class="form-label">Processor Brand</label>
+            <input type="text" Required name="processor_brand" class="form-control" id="inputprobra" placeholder=" processor brand">
+        </div>
+
+        <div class="col-12">
+            <label for="generation1" class="form-label">Generation</label>
+            <input type="text" Required name="generation" class="form-control" id="generation1" placeholder="generation...">
+        </div>
+
+        <div class="col-12">
+          <label for="inputprobra" class="form-label">Processor model</label>
+          <input type="text" Required name="processor_model" class="form-control" id="inputprobra" placeholder=" processor brand">
+      </div>
+
+
+        <div class="col-12">
+            <label for="inputCpucache" class="form-label">Cpu Cache</label>
+            <input type="text" Required name="cpu_cache" class="form-control" id="inputCpucache" placeholder="cpu cache..">
+        </div>
+
+        <div class="col-md-6">
+            <label for="displaysize" class="form-label">Display Size</label>
+            <input type="float" Required name="display_size" class="form-control" id="displaysize" placeholder="display size">
+        </div>
+        <div class="col-md-6">
+          <label for="displaytype" class="form-label">Display Type</label>
+          <input type="text" Required name="display_type" class="form-control" id="displaytype" placeholder="display type...">
+      </div>
+
+        <div class="col-12">
+            <label for="displayresolution" class="form-label">Display Resolution</label>
+            <input type="text" Required name="display_resolution" class="form-control" id="displayresolution" placeholder="display resolution...">
+        </div>
+
+    
+        <div class="col-12">
+          <label for="exampleFormControlSelect4">Touch Screen</label>
+          <select Required name="touch_screen" class="form-control" id="exampleFormControlSelect4">
+          <option selected>Choose...</option>  
+            <option>Yes</option>
+            <option>No</option>
+          </select>
+      </div>
+
+        <div class="col-md-6">
+            <label for="inputram" class="form-label">Ram</label>
+            <input type="text" Required name="ram" class="form-control" id="inputram" placeholder="ram..">
+        </div>
+
+        <div class="col-md-6">
+          <label for="ramtype" class="form-label">Ram Type</label>
+          <input type="text" Required name="ram_type" class="form-control" id="ramtype" placeholder="Ram Type..">
+      </div>
+
+      <div class="col-12">
+        <label for="inputHDD" class="form-label">HDD</label>
+        <input type="text" Required name="hdd" class="form-control" id="inputHDD" placeholder="hdd..">
+      </div>
+      <div class="col-12">
+        <label for="inputssd" class="form-label">SSD</label>
+        <input type="text" Required name="ssd" class="form-control" id="inputssd" placeholder="ssd..">
+      </div>
+
+      <div class="col-12">
+        <label for="exampleFormControlSelect1">Optical_Drive</label>
+        <select Required name="optical_drive" class="form-control" id="exampleFormControlSelect1">
+        <option selected>Choose...</option>  
+          <option>Yes</option>
+          <option>No</option>
+        </select>
+    </div>
+
+    
+      <div class="col-12">
+          <label for="exampleFormControlSelect2">Keyboard Back Lit</label>
+          <select Required name="keyboard_back_lit" class="form-control" id="exampleFormControlSelect2">
+          <option selected>Choose...</option>  
+            <option>Yes</option>
+            <option>No</option>
+          </select>
+      </div>
+
+      <div class="col-12">
+        <label for="exampleFormControlSelect3">Finger Print Sensor</label>
+        <select Required name="finger_print_sensor" class="form-control" id="exampleFormControlSelect3">
+        <option selected>Choose...</option>  
+          <option>Yes</option>
+          <option>No</option>
+        </select>
+      </div> 
+
+      <div class="col-12">
+        <label for="WIFI1" class="form-label">WIFI</label>
+        <input type="text" Required name="wifi" class="form-control" id="WIFI1" placeholder="wifi..">
+      </div>
+       
+        <div class="col-12">
+            <label for="inputdetails" class="form-label">Operating System</label>
+            <input type="type" Required name="operating_system" style="height:50px;" class="form-control mb-2" id="inputdetails" placeholder="Operating System">
+          </div>
+        
+         
+        <div class="col-12">
+          <label for="weight1" class="form-label">Weight (kg)</label>
+          <input type="float" Required name="weight" class="form-control" id="weight1" placeholder="weight..">
+        </div>
+        <div class="col-12">
+          <label for="warranty1" class="form-label">Warranty</label>
+          <input type="text" Required name="warranty" style="height:80px;" class="form-control mb-3" id="warranty1" placeholder="warranty..">
+        </div>
+       
+        <br>
+              
+        <div class="col-12">
+          <button type="submit" class="btn mt-2" style="background-color:rgb(240, 244, 245);"><h6 style="color: black;">Apply</h6></button>
+        </div>
+
+      </form> <br>
+
+     <!--messages set -->
+{% if messages %}
+
+{% for message in messages %}
+ <h3 {% if message.tags %} class="{{message.tags}}" {% endif %}>
+ {{message}}
+ </h3>
+{% endfor %}
+
+{% endif %} 
+
+</div>
+
+</div>
+</section>
+
+<!-- Optional JavaScript; choose one of the two! -->
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+     <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+</body>
+</html>        
